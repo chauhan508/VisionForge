@@ -3,8 +3,15 @@
 Here is the slide-by-slide content tailored for your PowerPoint submission round.
 
 ## Slide 1: The Opportunity
-**The Challenge:** Satellite remote sensing frequently relies on infrared (IR) sensors during night time or adverse weather. However, raw IR images are monochrome, suffer from low contrast, and lack semantic textures, making it difficult for both human analysts and automated AI models to identify critical objects like vehicles, buildings, or vegetation.
-**The Opportunity:** By developing an end-to-end deep learning framework, we can simultaneously super-resolve (sharpen) these IR images and map them to realistic RGB colorizations. This transforms low-visibility thermal data into high-fidelity imagery, drastically improving situational awareness and the accuracy of downstream object detection tasks without introducing hallucinated artifacts.
+
+**1. How will it be able to solve the problem?**
+The solution tackles the low visibility and low contrast issues of nighttime/adverse-weather IR imagery using an end-to-end deep learning pipeline. First, a Super-Resolution module sharpens faint edges and upscales the raw thermal data. Then, a generative model (like CycleGAN/Pix2Pix) maps these enhanced monochrome features to a realistic RGB color space, transforming vague thermal signatures into intuitive, high-fidelity images that analysts and AI models can easily interpret.
+
+**2. How different is it from existing ideas?**
+Traditional approaches rely on simple "pseudo-coloring" (mapping heat values to arbitrary colors like bright red/blue), which looks unnatural and fails to preserve actual structural textures. Existing super-resolution models often operate only in the visible spectrum. VisionForge combines **both** enhancement and biologically-realistic semantic colorization in a single pipeline, ensuring that the generated colors represent real-world ground truth (e.g., water is blue, foliage is green).
+
+**3. Unique Selling Proposition (USP)**
+Our USP is **"Semantic-Preserving High-Fidelity Translation."** We strictly enforce semantic mask constraints during the IR-to-RGB translation process to guarantee zero hallucinated artifacts. This ensures the output is not just "pretty," but mathematically reliable, directly boosting the accuracy of critical downstream tasks like automated military object detection or disaster management.
 
 ## Slide 2: Features Offered by the Solution
 1. **Super-Resolution Enhancement:** Upscales low-resolution IR imagery and sharpens faint edges/textures for enhanced structural detail.
